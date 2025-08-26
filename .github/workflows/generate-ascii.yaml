@@ -19,6 +19,7 @@ jobs:
           run: sleep 30
 
     test_job:
+      needs: build_job
       runs-on: ubuntu-latest
       steps:
       - name: Sleep for 30 seconds
@@ -31,6 +32,7 @@ jobs:
         #   run: cat dragon.txt
 
     deploy_job:
+      needs: test_job
       runs-on: ubuntu-latest
       steps:
           
